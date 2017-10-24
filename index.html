@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>neuron</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+
+  <fieldset>
+    <legend>Controls</legend>
+    <div>
+      <input type="button" value="Predict" onclick="predict()">
+      <input type="button" value="Step"    onclick="train(true)">
+      <input type="button" value="Train"   onclick="train()">
+      <input type="button" value="Stop"    onclick="stop()">
+      <input type="button" value="Reset"   onclick="reset()">
+    </div>
+    <div>Step:
+      <input type="radio" name="step" onclick="changeStep(0.1, 1)" checked> 0.1
+      <input type="radio" name="step" onclick="changeStep(0.01, 2)"       > 0.01
+      <input type="radio" name="step" onclick="changeStep(0.001, 3)"      > 0.001
+    </div>
+    <div>Delay:
+      <input type="radio" name="delay" onclick="changeDelay(10)" checked> 10
+      <input type="radio" name="delay" onclick="changeDelay(100)"       > 100
+      <input type="radio" name="delay" onclick="changeDelay(1000)"      > 1000
+    </div>
+    <div>Training: <i id="training"></i></div>
+    <div>-10 <= x <= 10</div>
+  </fieldset>
+
+
+  <div id="outerWrap">
+    <fieldset>
+      <legend>Same input</legend>
+      <div id="input"></div>
+    </fieldset>
+
+    <div id="innerWrap">
+      <fieldset>
+        <legend>Target</legend>
+        <canvas id="target" width="150px" height="150px"></canvas>
+      </fieldset>
+
+      <fieldset>
+        <legend>Target output</legend>
+        <div id="targetOutput"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Neuron</legend>
+        <canvas id="neuron" width="150px" height="150px"></canvas>
+      </fieldset>
+
+      <fieldset>
+        <legend>Neuron output</legend>
+        <div id="neuronOutput"></div>
+      </fieldset>
+    </div>
+
+    <fieldset>
+      <legend>Error</legend>
+      <canvas id="error" width="150px" height="150px"></canvas>
+    </fieldset>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
